@@ -46,6 +46,7 @@ class FormMovieActivity : AppCompatActivity() {
             intent.getParcelableExtra<Movie>(Constants.CURRENT_MOVIE)
         currentMovie?.let { _currentMovie ->
             with(afmb) {
+                afmb.nameEt.isEnabled = false
                 with(_currentMovie) {
                     nameEt.setText(name)
                     launchEt.setText(launch.toString())
