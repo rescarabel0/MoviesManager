@@ -2,9 +2,12 @@ package br.edu.ifsp.pdm.moviesmanager.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.ifsp.pdm.moviesmanager.R
 import br.edu.ifsp.pdm.moviesmanager.adapter.MovieAdapter
 import br.edu.ifsp.pdm.moviesmanager.databinding.ActivityMainBinding
 import br.edu.ifsp.pdm.moviesmanager.model.Movie
@@ -39,6 +42,21 @@ class MainActivity : AppCompatActivity() {
             val payerIntent = Intent(this, MovieActivity::class.java)
             payerIntent.putExtra(Constants.CURRENT_MOVIE, moviesList[position])
             parl.launch(payerIntent)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.add_payer_mi -> {
+                parl.launch(Intent(this, FormMovieActivity::class.java))
+                true
+            }
+            else -> false
         }
     }
 

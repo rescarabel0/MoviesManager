@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add_payer_mi"
+        android:icon="@drawable/ic_add"
+        android:title="@string/add_movie"
+        app:showAsAction="ifRoom"
+        />
+<!--    <item-->
+<!--        android:id="@+id/calculate_mi"-->
+<!--        android:icon="@drawable/ic_calculate"-->
+<!--        android:title="@string/calculate_expenses"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        />-->
+</menu>
