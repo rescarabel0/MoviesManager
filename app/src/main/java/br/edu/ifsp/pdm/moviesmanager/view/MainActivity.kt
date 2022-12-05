@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
 
-//        fillMovieList()
         movieAdapter = MovieAdapter(this, moviesList)
         amb.mainLv.adapter = movieAdapter
 

@@ -3,6 +3,7 @@ package br.edu.ifsp.pdm.moviesmanager.model
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import br.edu.ifsp.pdm.moviesmanager.util.Gender
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -16,5 +17,5 @@ data class Movie(
     var durationTime: Int,
     var watched: Boolean = false,
     var ranking: Int = 0,
-    var gender: String
+    var gender: Gender
 ) : Parcelable

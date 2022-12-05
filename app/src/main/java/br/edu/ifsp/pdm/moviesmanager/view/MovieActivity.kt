@@ -20,7 +20,7 @@ class MovieActivity : AppCompatActivity() {
         amb.movieNameTv.text = currentMovie?.name
         amb.movieRankingTv.text = "Ranking: " + currentMovie?.ranking.toString()
         amb.movieDurationTv.text = "Duration: " + currentMovie?.durationTime.toString() + " minutes"
-        amb.movieGenderTv.text = "Gender: " + currentMovie?.gender
+        amb.movieGenderTv.text = "Gender: " + currentMovie?.gender?.value
         amb.movieProducerTv.text = "Producer: " + currentMovie?.producer
         amb.movieLaunchTv.text = "Launch: " + currentMovie?.launch.toString()
         amb.movieWatchedTv.text =

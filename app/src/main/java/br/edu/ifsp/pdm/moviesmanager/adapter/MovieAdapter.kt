@@ -35,7 +35,7 @@ class MovieAdapter (
 
         with(movieTileView?.tag as TileMovieHolder) {
             nameTv.text = movie.name
-            rankingTv.text = "Ranking: $" + movie.ranking.toString()
+            rankingTv.text = "Ranking: " + movie.ranking.toString()
         }
 
         return movieTileView
