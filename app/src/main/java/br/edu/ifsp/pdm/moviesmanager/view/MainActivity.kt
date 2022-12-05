@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         MovieRoomController(this)
     }
 
+    private var currentSort = "name"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
@@ -49,7 +52,18 @@ class MainActivity : AppCompatActivity() {
                             val position = moviesList.indexOfFirst { it.id == _movie.id }
                             if (position != -1)
                                 movieController.update(_movie)
-                            else movieController.insert(_movie)
+                            else {
+                                val movieExists = moviesList.find { it.name == _movie.name }
+                                if (movieExists != null) {
+                                    Toast.makeText(
+                                        this,
+                                        "Error! A movie with that name already exists.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    return@let
+                                }
+                                movieController.insert(_movie)
+                            }
                         }
                         Constants.ACTION_DELETE -> {
                             movieController.delete(_movie)
@@ -59,7 +73,6 @@ class MainActivity : AppCompatActivity() {
                             formIntent.putExtra(Constants.CURRENT_MOVIE, _movie)
                             parl.launch(formIntent)
                         }
-                        else -> null
                     }
                 }
                 movieAdapter.notifyDataSetChanged()
@@ -84,6 +97,21 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.add_payer_mi -> {
                 parl.launch(Intent(this, FormMovieActivity::class.java))
+                true
+            }
+            R.id.sort_mi -> {
+                if (currentSort == "name") {
+                    currentSort = "ranking"
+                    moviesList.sortBy {
+                        it.ranking
+                    }
+                } else {
+                    currentSort = "name"
+                    moviesList.sortBy {
+                        it.name
+                    }
+                }
+                movieAdapter.notifyDataSetChanged()
                 true
             }
             else -> false

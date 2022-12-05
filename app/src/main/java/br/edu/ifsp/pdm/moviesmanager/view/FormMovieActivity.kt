@@ -66,9 +66,15 @@ class FormMovieActivity : AppCompatActivity() {
                     .show()
                 return@setOnClickListener
             }
-            val duration = afmb.launchEt.text.toString().toInt()
+            val duration = afmb.durationEt.text.toString().toInt()
             if (duration > 200) {
                 Toast.makeText(this, "Error! Duration time is invalid", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            val ranking = afmb.rankingEt.text.toString().toInt()
+            if (ranking > 10 || ranking < 0) {
+                Toast.makeText(this, "Error! Ranking is invalid", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
             }

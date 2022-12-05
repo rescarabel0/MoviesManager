@@ -12,4 +12,5 @@
     <string name="add_movie">Add Movie</string>
     <string name="watched">Watched:</string>
     <string name="gender">Gender</string>
+    <string name="sort">Sort</string>
 </resources>
