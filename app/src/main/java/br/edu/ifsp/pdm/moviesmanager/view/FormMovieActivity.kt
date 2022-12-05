@@ -73,7 +73,7 @@ class FormMovieActivity : AppCompatActivity() {
             }
             val movie = Movie(
                 currentMovie?.id ?: Random(System.currentTimeMillis()).nextInt(),
-                afmb.nameEt.text.toString(),
+                currentMovie?.name ?: afmb.nameEt.text.toString(),
                 afmb.launchEt.text.toString().toInt(),
                 afmb.producerEt.text.toString(),
                 afmb.durationEt.text.toString().toInt(),
