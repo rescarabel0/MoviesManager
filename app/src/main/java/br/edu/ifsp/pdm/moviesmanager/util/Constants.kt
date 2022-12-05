@@ -1,6 +1,8 @@
 package br.edu.ifsp.pdm.moviesmanager.util
 
 object Constants {
+    const val MOVIE_DATABASE_FILE = "movies_room"
+
     const val CURRENT_MOVIE = "CURRENT_MOVIE"
     const val MOVIE = "MOVIE"
 
